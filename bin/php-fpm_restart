@@ -1,0 +1,2 @@
+sudo kill -USR2 `cat /var/run/justphp/wangmeng/php-fpm.pid`
+sudo chmod -R 777 /var/run/justphp
