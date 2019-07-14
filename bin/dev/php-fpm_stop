@@ -1,1 +1,1 @@
-sudo kill -INT `cat /var/run/justphp/wangmeng/php-fpm.pid`
+kill -INT `cat /var/run/justphp/wangmeng/php-fpm.pid`

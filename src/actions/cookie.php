@@ -3,7 +3,6 @@
 
 class cookieAction extends baseAction
 {
-
     public function Get()
     {
         if($_COOKIE['cookietest']){

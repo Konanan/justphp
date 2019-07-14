@@ -1,2 +1,2 @@
-sudo /usr/local/php/sbin/php-fpm -c /home/wangmeng/devspace/justphp/conf/php.ini -y /home/wangmeng/devspace/justphp/conf/php-fpm.conf -g /var/run/justphp/wangmeng/php-fpm.pid
-sudo chmod -R 777 /var/run/justphp
+/usr/local/php/sbin/php-fpm -c /home/wangmeng/devspace/justphp/conf/php.ini -y /home/wangmeng/devspace/justphp/conf/php-fpm.conf -g /var/run/justphp/wangmeng/php-fpm.pid
+chmod -R 777 /var/run/justphp
