@@ -1,7 +1,1 @@
-注意插件中依赖的sdk：
-
-1：support相关的包： 在我们提供的插件Assets/UnionPlatform/Plugins/Android目录下,分别是support-v4-compat.jar 、support-v4-utils.jar，如果开发者也用到了相关的包，可选择用自己的support包，需要注意版本得使用24.2.0以及以上。
-
-1：广告插件相关的包： 在我们提供的插件Assets/UnionPlatform/Plugins/Android目录下,分别是android-gif-drawable-1.2.6.aar 、android-query-full.0.26.7.jar、open_ad_sdk.aar 。这些包必须引入。
-
-1：原生广告自定义用到的包： 在我们提供的插件Assets/UnionPlatform/Plugins/Android目录下,其中 volley.jar 在原生广告自定义的加载图片有用到，开发者可根据自己使用的图片加载库替换，并在原生实现类里做相应修改。
+This is a txt file
