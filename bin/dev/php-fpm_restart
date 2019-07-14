@@ -1,2 +1,0 @@
-kill -USR2 `cat /var/run/justphp/wangmeng/php-fpm.pid
-chmod -R 777 /var/run/justphp
