@@ -1,8 +1,6 @@
 <?php
 
-require('library/route.php');
-
-$app = new app();
-$app->Run();
-
-
+define("APPLICATION_PATH",  dirname(__FILE__));
+$app  = new Yaf_Application(APPLICATION_PATH . "/conf/application.ini");
+$app->bootstrap() //call bootstrap methods defined in Bootstrap.php
+    ->run();

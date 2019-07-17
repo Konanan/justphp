@@ -1,1 +1,0 @@
-kill -INT `cat /var/run/justphp/online/php-fpm.pid`

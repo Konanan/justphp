@@ -1,0 +1,22 @@
+#!/bin/bash
+
+Env=online
+PhpBin=/usr/local/php/sbin/php-fpm
+PhpIni=conf/${Env}/php.ini
+PhpConf=conf/${Env}/php-fpm_justphp.conf
+PhpPid=/var/run/justphp/${Env}/php-fpm.pid
+
+case $1 in
+start)
+${PhpBin} -c ${PhpIni} -y ${PhpConf} -g ${PhpPid}
+;;
+stop)
+kill -INT `cat ${PhpPid}`
+;;
+reload)
+kill -USR2 `cat ${PhpPid}`
+;;
+*)
+echo $"Usage: {start|stop|reload}"
+;;
+esac

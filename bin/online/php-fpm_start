@@ -1,2 +1,0 @@
-/usr/local/php/sbin/php-fpm -c /home/data/system/justphp/conf/online/php.ini -y /home/data/system/justphp/conf/online/php-fpm.conf -g /var/run/justphp/online/php-fpm.pid
-chmod -R 777 /var/run/justphp
