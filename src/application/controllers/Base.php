@@ -23,6 +23,10 @@ class BaseController extends Yaf_Controller_Abstract
         return $this->getRequest()->getServer('SERVER_NAME');
     }
 
+    protected function getIp(){
+        return $this->getRequest()->getServer('REMOTE_ADDR');
+    }
+
     protected function getUri(){
         return $this->getRequest()->getServer('REQUEST_URI');
     }
@@ -74,9 +78,11 @@ class BaseController extends Yaf_Controller_Abstract
         if(is_array($this->data)){
             $jData = json_encode($this->data);
             if($jData){
+                $this->markResponse($jData);
                 exit($jData);
             }
         }else if(is_string($this->data)){
+            $this->markResponse($this->data);
             exit($this->data);
         }
         exit();
@@ -100,21 +106,39 @@ class BaseController extends Yaf_Controller_Abstract
                 $this->hideView();
             }
         }
+        $this->markResponse(json_encode($this->data));
     }
 
-    protected function printRequest(){
+    protected function markRequest(){
+        $ctler = $this->getRequest()->getControllerName();
+        $action = $this->getActionName();
         $host = $this->getHost();
         $uri = $this->getUri();
         $method = $this->getMethod();
+        $ip = $this->getIp();
+
         if("GET" == $method){
             $query = $_SERVER['QUERY_STRING'];
         }else if("POST" == $method){
             $query = http_build_query($_POST,'&');
         }
-        error_log('[' .$method.']:'.$host.$uri.'?'.$query."\n",3,'/home/data/logs/justlogs/justphp.log');
+        $log = "Request=${ctler}_${action}&Info=${method}:${host}${uri}?${query}&Ip=${ip}";
+        error_log($log."\n",3,'/home/data/logs/justlogs/justphp.log');
+    }
+
+    protected function markResponse($data){
+        $ctler = $this->getRequest()->getControllerName();
+        $action = $this->getActionName();
+        $host = $this->getHost();
+        $uri = $this->getUri();
+        $method = $this->getMethod();
+        $ip = $this->getIp();
+
+        $log = "Response=${ctler}_${action}&Info=${method}:${host}${uri}&Ret=${data}";
+        error_log($log."\n",3,'/home/data/logs/justlogs/justphp.log');
     }
 
     public function init(){
-        $this->printRequest();
+        $this->markRequest();
     }
 }
