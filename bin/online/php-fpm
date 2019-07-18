@@ -9,6 +9,7 @@ PhpPid=/var/run/justphp/${Env}/php-fpm.pid
 case $1 in
 start)
 ${PhpBin} -c ${PhpIni} -y ${PhpConf} -g ${PhpPid}
+chmod 777 /var/run/justphp/online/fpm.sock
 ;;
 stop)
 kill -INT `cat ${PhpPid}`

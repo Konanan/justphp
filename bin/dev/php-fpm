@@ -9,6 +9,7 @@ PhpPid=/var/run/justphp/wangmeng/php-fpm.pid
 case $1 in
 start)
 ${PhpBin} -c ${PhpIni} -y ${PhpConf} -g ${PhpPid}
+chmod 777 /var/run/justphp/wangmeng/fpm.sock
 ;;
 stop)
 kill -INT `cat ${PhpPid}`
