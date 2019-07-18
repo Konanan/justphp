@@ -1,0 +1,13 @@
+<html>
+<body>
+
+生成HTML表格
+<table border="3">
+<?php
+foreach($servers as $k => $v){
+    echo "<tr><td>".$k."</td><td>".$v."</td></tr>";
+}
+?>
+</table>
+</body>
+</html>
