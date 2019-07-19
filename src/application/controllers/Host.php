@@ -11,7 +11,7 @@ class HostController extends BaseController
     {
         $host = $this->getHost();
         $uri = $this->getUri();
-        $var1 = $this->getString('var1');
+        $var1 = $this->getValue('var1');
         $method = '';
         if($this->isGet()){
             $method = 'GET';
@@ -34,13 +34,15 @@ class HostController extends BaseController
         $this->serveHtml(array('servers' => $_SERVER));
     }
 
-    public function view2Action(){
+    public function view2Action()
+    {
         $this->setTplName('host/view22.phtml');
         $this->setData(array('servers' => $_SERVER));
         $this->serveHtml();
     }
 
-    public function init(){
+    public function init()
+    {
         parent::init();
     }
 }

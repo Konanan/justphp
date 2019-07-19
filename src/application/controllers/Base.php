@@ -40,7 +40,7 @@ class BaseController extends Yaf_Controller_Abstract
     }
 
     // POST or GET or COOKIE or SERVER
-    public function getString($key){
+    public function getValue($key){
         return $this->getRequest()->get($key);
     }
 
