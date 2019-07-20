@@ -79,9 +79,10 @@ BaseController会在init函数记录本次访问的信息，也会在返回（AP
 `parent::init();`
 
 就会记录两条日志
+
 `Request=Api_getversion&Info=GET:dev.just.konanw.com/api/getversion?&Ip=125.70.78.13`
 
-`Response=Api_getversion&Info=GET:dev.just.konanw.com/api/getversion&Ret={"errno":1000,"errmsg":"","data":"getVersion"}""""""}
+`Response=Api_getversion&Info=GET:dev.just.konanw.com/api/getversion&Ret={"errno":1000,"errmsg":"","data":"getVersion"}"}`
 
 
 
