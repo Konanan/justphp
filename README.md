@@ -55,10 +55,9 @@ hideView和showView
 顾明思义，tplName就是模板名字，data就是数据
 例如
 
-(```)
-$this->setTplName('index2.phtml');
-$this->setData(array('uname'=>'user1001'));
-(```)
+`$this->setTplName('index2.phtml');`
+
+`$this->setData(array('uname'=>'user1001'));`
 
 #### 3.3.3 响应 ####
 这里也是采用beego的方式
