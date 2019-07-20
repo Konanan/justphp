@@ -71,3 +71,19 @@ serveJson会自动调用hideView，serveHtml会自动调用showView
 
 就是一个api接口，返回{"errno":1000}给客户端
 
+
+### 3.4 访问信息日志 ###
+BaseController会在init函数记录本次访问的信息，也会在返回（API和界面）信息的时候记录返回的日志
+只需要在自己的Controller中加入如下代码
+
+`parent::init();`
+
+就会记录两条日志
+`Request=Api_getversion&Info=GET:dev.just.konanw.com/api/getversion?&Ip=125.70.78.13`
+
+`Response=Api_getversion&Info=GET:dev.just.konanw.com/api/getversion&Ret={"errno":1000,"errmsg":"","data":"getVersion"}""""""}
+
+
+
+
+
