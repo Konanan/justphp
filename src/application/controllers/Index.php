@@ -1,11 +1,13 @@
 <?php
 
 class IndexController extends BaseController {
-    public function indexAction() {
+    public function indexAction()
+    {
         exit();
     }
 
-	public function init() {
+    public function init()
+    {
         parent::init();
     }
 }

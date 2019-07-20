@@ -11,36 +11,44 @@ class BaseController extends Yaf_Controller_Abstract
      * Request操作
      */
 
-    protected function isPost(){
+    protected function isPost()
+    {
         return $this->getRequest()->isPost();
     }
 
-    protected function isGet(){
+    protected function isGet()
+    {
         return $this->getRequest()->isGet();
     }
 
-    protected function getHost(){
+    protected function getHost()
+    {
         return $this->getRequest()->getServer('SERVER_NAME');
     }
 
-    protected function getIp(){
+    protected function getIp()
+    {
         return $this->getRequest()->getServer('REMOTE_ADDR');
     }
 
-    protected function getUri(){
+    protected function getUri()
+    {
         return $this->getRequest()->getServer('REQUEST_URI');
     }
 
-    protected function getActionName(){
+    protected function getActionName()
+    {
         return $this->getRequest()->getActionName();
     }
 
-    protected function getMethod(){
+    protected function getMethod()
+    {
         return $this->getRequest()->getMethod();
     }
 
     // POST or GET or COOKIE or SERVER
-    public function getValue($key){
+    public function getValue($key)
+    {
         return $this->getRequest()->get($key);
     }
 
@@ -49,25 +57,30 @@ class BaseController extends Yaf_Controller_Abstract
      * View操作
      */
 
-    public function hideView(){
+    public function hideView()
+    {
         Yaf_dispatcher::getInstance()->disableView();
     }
 
-    protected function showView(){
+    protected function showView()
+    {
         Yaf_dispatcher::getInstance()->enableView();
     }
 
-    protected function setTplName($tpl){
+    protected function setTplName($tpl)
+    {
         $this->tplName = $tpl;
     }
 
-    protected function setData($data){
+    protected function setData($data)
+    {
         if(is_array($data) || is_string($data)){
             $this->data = $data;
         }
     }
 
-    protected function serveJson($data = null){
+    protected function serveJson($data = null)
+    {
         //禁止渲染页面
         $this->hideView();
 
@@ -88,7 +101,8 @@ class BaseController extends Yaf_Controller_Abstract
         exit();
     }
 
-    protected function serveHtml($data = null){
+    protected function serveHtml($data = null)
+    {
         //开启页面渲染
         $this->showView();
 
@@ -109,7 +123,8 @@ class BaseController extends Yaf_Controller_Abstract
         $this->markResponse(json_encode($this->data));
     }
 
-    protected function markRequest(){
+    protected function markRequest()
+    {
         $ctler = $this->getRequest()->getControllerName();
         $action = $this->getActionName();
         $host = $this->getHost();
@@ -126,7 +141,8 @@ class BaseController extends Yaf_Controller_Abstract
         error_log($log."\n",3,'/home/data/logs/justlogs/justphp.log');
     }
 
-    protected function markResponse($data){
+    protected function markResponse($data)
+    {
         $ctler = $this->getRequest()->getControllerName();
         $action = $this->getActionName();
         $host = $this->getHost();
@@ -138,7 +154,8 @@ class BaseController extends Yaf_Controller_Abstract
         error_log($log."\n",3,'/home/data/logs/justlogs/justphp.log');
     }
 
-    public function init(){
+    public function init()
+    {
         $this->markRequest();
     }
 }

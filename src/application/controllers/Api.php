@@ -2,11 +2,13 @@
 
 class ApiController extends BaseController
 {
-    public function indexAction(){
+    public function indexAction()
+    {
         $this->serveJson('call ApiController indexAction');
     }
 
-    public function getVersionAction(){
+    public function getVersionAction()
+    {
         $data = array(
             'errno' => 1000,
             'errmsg' => '',
@@ -16,7 +18,8 @@ class ApiController extends BaseController
         $this->serveJson();
     }
 
-    public function logActiveAction(){
+    public function logActiveAction()
+    {
         $game = $this->getValue('game');
         $platform = $this->getValue('platform');
         $deviceId = $this->getValue('deviceId');
@@ -24,7 +27,8 @@ class ApiController extends BaseController
         $this->serveJson($data);
     }
 
-    public function init(){
+    public function init()
+    {
         parent::init();
     }
 
